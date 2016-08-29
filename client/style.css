@@ -1,0 +1,21 @@
+body {
+    margin: 20px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.buttons {
+    float: right;
+}
+
+.list-button {
+    margin-left: 10px;
+    width: 50px;
+}
+
+.lower-button {
+    margin-right: 10px;
+    width: 70px;
+}

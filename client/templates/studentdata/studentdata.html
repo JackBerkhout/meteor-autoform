@@ -1,0 +1,79 @@
+<template name="AddStudentData">
+    <div class="well">
+        <h3>Add</h3>
+        {{> quickForm
+                collection="StudentData"
+                template="bootstrap3-horizontal"
+                label-class="col-sm-2"
+                input-col-class="col-sm-10"
+
+                id="AddStudentDataForm"
+                type="method"
+                meteormethod="addStudentData"
+                resetOnSuccess=true}}
+    </div>
+    <button class="lower-button back btn btn-success btn-xs">Back</button>
+</template>
+
+<template name="UpdateStudentData">
+    <div class="well">
+        <h3>Update</h3>
+        {{> quickForm
+                collection="StudentData"
+                template="bootstrap3-horizontal"
+                label-class="col-sm-2"
+                input-col-class="col-sm-10"
+
+                id="UpdateStudentDataForm"
+                type="method-update"
+                meteormethod="updateStudentData"
+                doc=this
+                buttonContent="Update"}}
+    </div>
+    <button class="lower-button back btn btn-success btn-xs">Back</button>
+</template>
+
+<template name="ViewStudentData">
+    <div class="well">
+        <h3>Details</h3>
+        <p><span class="name">Name:</span> {{this.name}}</p>
+        <p><span class="name">Bio:</span> {{this.bio}}</p>
+        <p><span class="name">Hobbies:</span></p>
+        <ul>
+            {{#each this.hobbies}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        <p><span class="name">Level:</span> {{this.level}}</p>
+        <p><span class="name">GPA:</span> {{this.gpa}}</p>
+        <p><span class="name">Majors:</span></p>
+        <ul>
+            {{#each this.majors}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <button class="lower-button back btn btn-success btn-xs">Back</button>
+</template>
+
+<template name="ListStudentData">
+    <div class="well">
+        <h3>List of Students</h3>
+        <ul class="list-group">
+            {{#each listStudentData}}
+                <li class="list-group-item">
+                    <span class="name">{{name}}</span>
+                    - {{bio}}
+                    <!--<a class="list-button edit btn btn-default btn-xs" href="/student/{{_id}}">edit</a>-->
+                    <div class="buttons">
+                        <button class="list-button view btn btn-success btn-xs">View</button>
+                        <button class="list-button edit btn btn-default btn-xs">Edit</button>
+                        <button class="list-button delete btn btn-danger btn-xs">Delete</button>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <button class="lower-button add btn btn-success btn-xs">Add</button>
+    <button class="lower-button populate btn btn-primary btn-xs">Populate</button>
+</template>
